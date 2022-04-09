@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Compose Playground</string>
+
+    <!--region YogaWave-->
+    <string name="yoga_wave_course_banner">Yoga course banner</string>
+    <!--endregion-->
 </resources>
