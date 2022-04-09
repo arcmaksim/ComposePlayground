@@ -36,7 +36,7 @@ fun YogaWaveCourseCard(
             .height(280.dp)
             .padding(16.dp),
         backgroundColor = Color.Gray,
-        shape = Shapes.medium.copy(all = CornerSize(8.dp)),
+        shape = Shapes.medium.copy(all = CornerSize(16.dp)),
     ) {
         Image(
             painter = painterResource(R.drawable.yoga_pose),
