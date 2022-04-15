@@ -14,11 +14,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import dev.arcmaksim.composeplayground.presentation.ui.draganddrop.model.Die
+import dev.arcmaksim.composeplayground.presentation.ui.draganddrop.model.DieValue
 import dev.arcmaksim.composeplayground.presentation.ui.theme.ComposePlaygroundTheme
 
 @Composable
 fun Die(
-    die: DieEntity?,
+    die: Die?,
     modifier: Modifier = Modifier,
     dieSize: Dp = 120.dp,
 ) {
@@ -33,7 +35,7 @@ fun Die(
     ) {
         die?.let {
             Text(
-                text = it.value.toString(),
+                text = it.value.value.toString(),
                 style = MaterialTheme.typography.h2,
                 color = Color.Black,
             )
@@ -47,7 +49,7 @@ fun DiePreview() {
     ComposePlaygroundTheme {
         Die(
             modifier = Modifier.padding(16.dp),
-            die = DieEntity.Five,
+            die = Die(DieValue.Five),
         )
     }
 }

@@ -1,6 +1,7 @@
 package dev.arcmaksim.composeplayground.presentation
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
@@ -19,9 +20,10 @@ class MainActivity : ComponentActivity() {
         setContent {
             ComposePlaygroundTheme {
                 val state by viewModel.state.observeAsState()
+                Log.d("Asd", "Board: ${state!!.toList()}")
                 DieDragAndDropScreen(
-                    state = state!!,
-                    onDragCompleted = viewModel::consumeDie,
+                    dice = state!!.toList(),
+                    onDragCompleted = viewModel::moveDie,
                 )
             }
         }

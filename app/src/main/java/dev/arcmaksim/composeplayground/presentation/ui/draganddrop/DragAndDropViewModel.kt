@@ -3,38 +3,30 @@ package dev.arcmaksim.composeplayground.presentation.ui.draganddrop
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import dev.arcmaksim.composeplayground.presentation.ui.draganddrop.model.Die
+import dev.arcmaksim.composeplayground.presentation.ui.draganddrop.model.DieValue
 
 class DragAndDropViewModel : ViewModel() {
 
     private val _state = MutableLiveData(
-        State(
-            availableDice = listOf(DieEntity.Six, DieEntity.One, DieEntity.Three),
-            placedDice = listOf(null, null, null),
+        listOf(
+            Die(DieValue.Six), null, Die(DieValue.Three),
+            null, null, null,
+            Die(DieValue.Five), null, null,
         )
     )
-    val state: LiveData<State> = _state
+    val state: LiveData<List<Die?>> = _state
 
-    fun consumeDie(
+    fun moveDie(
         indexFrom: Int,
         indexTo: Int,
     ) {
-        val currentState = state.value!!
-        val transferringDie = currentState.availableDice[indexFrom]
-        val mutableAvailableDice = currentState.availableDice.toMutableList().apply {
+        _state.value = state.value!!.toTypedArray().run {
+            val die = get(indexFrom)
             set(indexFrom, null)
+            set(indexTo, die)
+            toList()
         }
-        val mutablePlacedDice = currentState.placedDice.toMutableList().apply {
-            set(indexTo, transferringDie)
-        }
-        _state.value = State(
-            availableDice = mutableAvailableDice.toList(),
-            placedDice = mutablePlacedDice.toList(),
-        )
     }
 
 }
-
-data class State(
-    val availableDice: List<DieEntity?>,
-    val placedDice: List<DieEntity?>,
-)

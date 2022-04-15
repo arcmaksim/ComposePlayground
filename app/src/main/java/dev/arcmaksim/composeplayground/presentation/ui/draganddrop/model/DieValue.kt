@@ -1,6 +1,6 @@
-package dev.arcmaksim.composeplayground.presentation.ui.draganddrop
+package dev.arcmaksim.composeplayground.presentation.ui.draganddrop.model
 
-enum class DieEntity(
+enum class DieValue(
     val value: Int,
 ) {
     One(1),
