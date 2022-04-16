@@ -16,7 +16,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import dev.arcmaksim.composeplayground.presentation.ui.draganddrop.model.Die
 import dev.arcmaksim.composeplayground.presentation.ui.draganddrop.model.DieValue
-import dev.arcmaksim.composeplayground.presentation.ui.theme.ComposePlaygroundTheme
+import dev.arcmaksim.presentation.theme.ComposePlaygroundTheme
 
 @Composable
 fun Die(

@@ -21,9 +21,11 @@ class MainActivity : ComponentActivity() {
                 val gameState by viewModel.state.collectAsState()
                 GameScreen(
                     gameState = gameState,
-                    onGamePaused = { viewModel.pauseGame() },
-                    onGameStarted = { viewModel.startGame() },
-                    onMoveMade = { move -> viewModel.makeMove(move) },
+                    onGamePaused = viewModel::pauseGame,
+                    onGameStarted = viewModel::startGame,
+                    onMoveMade = viewModel::makeMove,
+                    endTurn = viewModel::endTurn,
+                    placeDie = viewModel::placeDie,
                 )
             }
         }

@@ -3,7 +3,9 @@ package dev.arcmaksim.game.presentation
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dev.arcmaksim.game.CreatureFactory
+import dev.arcmaksim.game.PlayerFactory
 import dev.arcmaksim.game.domain.Creature
+import dev.arcmaksim.game.domain.dice.Dice
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -19,15 +21,18 @@ private const val turnTime = 3000L
 class GameViewModel : ViewModel() {
 
     private val creatureFactory = CreatureFactory()
+    private val playerFactory = PlayerFactory()
 
     private var gameState = GameState(
-        status = GameState.Status.Paused,
+        status = GameState.Status.Started,
         lastUpdateTime = System.currentTimeMillis(),
         turnCount = 0,
         position = 0,
         turnTime = turnTime,
         turnTimeRemaining = turnTime,
         creature = produceRandomCreature(),
+        player = playerFactory.produceDefaultPlayer(),
+        playerAbilities = listOf(playerFactory.attackAbility, playerFactory.healAbility, playerFactory.shutterAbility),
     )
 
     private val _state = MutableStateFlow(gameState)
@@ -64,6 +69,27 @@ class GameViewModel : ViewModel() {
                 creature = produceRandomCreature(),
             )
         }
+    }
+
+    fun placeDie(
+        abilityId: String,
+        dice: Dice,
+    ) {
+        /*gameState.let { state ->
+            gameState = state.copy(
+                availableDice = state.availableDice - dice,
+                playerAbilities = state.playerAbilities.map { if (it.id == abilityId) it.copy(placedDice = dice) else it },
+            )
+        }*/
+    }
+
+    fun endTurn() {
+        /*gameState.let { state ->
+            gameState = state.copy(
+                availableDice = state.player.totalDice.map(::produceDie),
+                playerAbilities = state.playerAbilities.map { it.copy(placedDice = null) },
+            )
+        }*/
     }
 
     init {

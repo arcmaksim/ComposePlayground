@@ -1,4 +1,4 @@
-package dev.arcmaksim.composeplayground.presentation.ui.draganddrop
+package dev.arcmaksim.game.presentation
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -12,13 +12,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import dev.arcmaksim.composeplayground.presentation.ui.draganddrop.model.Die
+import dev.arcmaksim.game.domain.dice.Dice
 import dev.arcmaksim.presentation.theme.ComposePlaygroundTheme
 
 @Composable
 fun DieSlot(
     modifier: Modifier = Modifier,
-    die: Die? = null,
+    dice: Dice? = null,
     dragAndDropReady: Boolean = false,
     dieSize: Dp = 120.dp,
 ) {
@@ -37,8 +37,8 @@ fun DieSlot(
             ),
         contentAlignment = Alignment.Center,
     ) {
-        die?.let {
-            Die(die = it)
+        dice?.let {
+            Dice(dice = it)
         }
     }
 }

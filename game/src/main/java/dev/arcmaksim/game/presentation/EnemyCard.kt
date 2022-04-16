@@ -42,7 +42,7 @@ fun EnemyCard(
     modifier: Modifier = Modifier,
 ) {
     Card(
-        modifier = modifier.aspectRatio(.75f),
+        modifier = modifier.aspectRatio(2f),
         shape = Shapes.medium.copy(CornerSize(16.dp)),
         backgroundColor = Color.LightGray,
     ) {
@@ -59,7 +59,7 @@ fun EnemyCard(
                 color = Color.Black,
             )
             Spacer(modifier = Modifier.height(12.dp))
-            Box(
+            /*Box(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(160.dp)
@@ -91,7 +91,7 @@ fun EnemyCard(
                     }
                 }
             }
-            Spacer(modifier = Modifier.height(12.dp))
+            Spacer(modifier = Modifier.height(12.dp))*/
 
             Row(
                 modifier = Modifier
@@ -113,7 +113,7 @@ fun EnemyCard(
                 )
             }
 
-            Box(
+            /*Box(
                 modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center,
             ) {
@@ -124,7 +124,7 @@ fun EnemyCard(
                     style = Typography.body2,
                     color = Color.Black,
                 )
-            }
+            }*/
         }
     }
 }
