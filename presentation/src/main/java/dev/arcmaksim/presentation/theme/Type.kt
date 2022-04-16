@@ -1,4 +1,4 @@
-package dev.arcmaksim.composeplayground.presentation.ui.theme
+package dev.arcmaksim.presentation.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

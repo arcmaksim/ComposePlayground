@@ -18,9 +18,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import dev.arcmaksim.composeplayground.R
-import dev.arcmaksim.composeplayground.presentation.ui.theme.ComposePlaygroundTheme
-import dev.arcmaksim.composeplayground.presentation.ui.theme.Shapes
-import dev.arcmaksim.composeplayground.presentation.ui.theme.Typography
+import dev.arcmaksim.presentation.theme.ComposePlaygroundTheme
+import dev.arcmaksim.presentation.theme.Shapes
+import dev.arcmaksim.presentation.theme.Typography
 
 @Composable
 fun YogaWaveCourseCard(

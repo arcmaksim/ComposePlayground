@@ -14,3 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Compose Playground"
 include ':app'
+include ':game'
+include ':presentation'
